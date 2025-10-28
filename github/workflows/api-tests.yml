@@ -1,0 +1,45 @@
+
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:  # allows manual trigger from GitHub UI
+
+jobs:
+  run-api-tests:
+    name: Run Postman API Collection
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install Newman and Reporter
+        run: |
+          npm install -g newman newman-reporter-htmlextra
+
+      - name: Run Postman Tests
+        run: |
+          newman run "Employee_Collection.postman_collection.json" \
+          -e "Employee_Environment.postman_environment.json" \
+          -r cli,htmlextra \
+          --reporter-htmlextra-export newman-report.html \
+          --reporter-htmlextra-title "Employee API Automation Report" \
+          --reporter-htmlextra-darkTheme \
+          --timeout-request 15000
+
+      - name: Upload Test Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: newman-html-report
+          path: newman-report.html
+
+      - name: Display Summary
+        run: echo 
