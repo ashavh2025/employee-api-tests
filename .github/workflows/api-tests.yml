@@ -27,8 +27,8 @@ jobs:
 
       - name: Run Postman Tests
         run: |
-          newman run "Employee_Collection.postman_collection.json" \
-          -e "Employee_Environment.postman_environment.json" \
+          newman run "EMP_ManAPI.postman_collection.json" \
+          -e "EMPenv.postman_environment.json" \
           -r cli,htmlextra \
           --reporter-htmlextra-export newman-report.html \
           --reporter-htmlextra-title "Employee API Automation Report" \
