@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "26004f18-843d-49d4-85b8-ad5caea13e0b",
-		"name": "EMP ManAPI",
+		"name": "EMP_ManAPI",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "15163910",
 		"_collection_link": "https://asha77-4001.postman.co/workspace/My-project~08961f25-1d00-4bbb-809e-f2bdc11bb884/collection/15163910-26004f18-843d-49d4-85b8-ad5caea13e0b?action=share&source=collection_link&creator=15163910"
@@ -41,7 +41,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"name\": \"Asha\",\r\n  \"data\": {\r\n    \"role\": \"QA Engineer\",\r\n    \"salary\": \"5000\",\r\n    \"age\": \"29\"\r\n  }\r\n}",
+					"raw": "{\r\n  \"name\": \"Ashatestef\",\r\n  \"data\": {\r\n    \"role\": \"QA Engineer\",\r\n    \"salary\": \"5000\",\r\n    \"age\": \"29\"\r\n  }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
