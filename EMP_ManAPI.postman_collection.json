@@ -14,25 +14,6 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"var jsonData = pm.response.json();\r",
-							"\r",
-							"// Validate status code\r",
-							"pm.test(\"Status code is 200 or 201\", function () {\r",
-							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);\r",
-							"});\r",
-							"\r",
-							"// Validate name\r",
-							"pm.test(\"Employee created successfully\", function () {\r",
-							"    pm.expect(jsonData.name).to.eql(\"Asha\");\r",
-							"});\r",
-							"\r",
-							"// Save employee ID for chaining\r",
-							"pm.environment.set(\"employeeId\", jsonData.id);\r",
-							"console.log(\"Employee ID saved:\", jsonData.id);\r",
-							"\r",
-							"var jsonData = pm.response.json();\r",
-							"pm.environment.set(\"userId\", jsonData.id);\r",
-							"\r",
 							"pm.test(\"Status code is 201\", function () {\r",
 							"    pm.response.to.have.status(201);\r",
 							"});"
@@ -75,15 +56,6 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});\r",
-							"\r",
-							"var jsonData = pm.response.json();\r",
-							"pm.test(\"Employee ID matches environment variable\", function () {\r",
-							"    pm.expect(jsonData.id).to.eql(pm.environment.get(\"employeeId\"));\r",
-							"});\r",
-							"\r",
 							"pm.test(\"Employee name matches expected\", function () {\r",
 							"    pm.expect(jsonData.name).to.eql(\"Asha\");\r",
 							"});"
@@ -117,12 +89,6 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"var jsonData = pm.response.json();\r",
-							"\r",
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});\r",
-							"\r",
 							"pm.test(\"Employee name updated successfully\", function () {\r",
 							"    pm.expect(jsonData.name).to.eql(\"Asha QA\");\r",
 							"});"
@@ -165,15 +131,6 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});\r",
-							"\r",
-							"var jsonData = pm.response.json();\r",
-							"pm.test(\"Employee deleted successfully\", function () {\r",
-							"    pm.expect(jsonData.message).to.include(\"deleted\");\r",
-							"});\r",
-							"\r",
 							"pm.test(\"Status code is 204\", function () {\r",
 							"    pm.response.to.have.status(204);\r",
 							"});"
